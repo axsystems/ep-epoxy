@@ -32,7 +32,7 @@ const galleryItems: GalleryItem[] = [
     title: "Polished Concrete Showroom",
     location: "Phoenix, AZ",
     service: "Concrete Polishing",
-    src: "https://images.unsplash.com/photo-1682597000932-d7041f42f669?w=800&h=600&fit=crop",
+    src: "https://plus.unsplash.com/premium_photo-1724636685530-e72c4ecf8f14?w=800&h=600&fit=crop",
   },
   {
     id: 4,

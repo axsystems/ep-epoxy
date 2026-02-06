@@ -10,7 +10,7 @@ export default function CTA() {
     <section className="relative py-20 sm:py-24 lg:py-32 overflow-hidden">
       {/* Background photo */}
       <Image
-        src="https://images.unsplash.com/photo-1682597000932-d7041f42f669?w=1920&h=800&fit=crop&q=80"
+        src="https://plus.unsplash.com/premium_photo-1724636685530-e72c4ecf8f14?w=1920&h=800&fit=crop&q=80"
         alt="Polished epoxy floor"
         fill
         className="object-cover"
