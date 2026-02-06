@@ -22,14 +22,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 pb-10 border-b border-white/10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-cta flex items-center justify-center shadow-accent-glow">
-                <span className="text-white font-display font-bold text-lg">E&P</span>
-              </div>
-              <div>
-                <span className="font-display font-bold text-white text-base block leading-tight">E&P Epoxy</span>
-                <span className="text-[10px] text-white/50 uppercase tracking-widest block leading-tight">Solutions</span>
-              </div>
+            <div className="mb-4">
+              <span className="font-display font-bold text-white text-xl">
+                E&P <span className="text-accent">Epoxy</span>
+              </span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-4">
               Arizona&apos;s premier epoxy flooring company, owned and operated by brothers Emmett &amp; Parker Henkel.

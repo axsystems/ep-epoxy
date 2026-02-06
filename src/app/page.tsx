@@ -54,8 +54,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
         <Gallery />
+        <Services />
         <Process />
         <WhyChooseUs />
         <Testimonials />

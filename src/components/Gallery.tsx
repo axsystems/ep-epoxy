@@ -1,15 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 interface GalleryItem {
   id: number;
   title: string;
   location: string;
   service: string;
-  gradient: string;
-  pattern: string;
+  src: string;
 }
 
 const galleryItems: GalleryItem[] = [
@@ -18,74 +18,70 @@ const galleryItems: GalleryItem[] = [
     title: "3-Car Garage Transformation",
     location: "Goodyear, AZ",
     service: "Garage Floor Coating",
-    gradient: "linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #2c3e50 100%)",
-    pattern: "radial-gradient(ellipse at 30% 40%, rgba(52, 152, 219, 0.4) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(44, 62, 80, 0.6) 0%, transparent 60%)",
+    src: "https://plus.unsplash.com/premium_photo-1661879916150-f80f71c41df8?w=800&h=600&fit=crop",
   },
   {
     id: 2,
-    title: "Metallic Pearl White",
+    title: "Metallic Pearl Finish",
     location: "Scottsdale, AZ",
     service: "Metallic Epoxy",
-    gradient: "linear-gradient(135deg, #bdc3c7 0%, #ecf0f1 30%, #95a5a6 60%, #bdc3c7 100%)",
-    pattern: "radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 50%), radial-gradient(ellipse at 80% 30%, rgba(189, 195, 199, 0.4) 0%, transparent 50%)",
+    src: "https://images.unsplash.com/photo-1589109807644-924edf14ee09?w=800&h=600&fit=crop",
   },
   {
     id: 3,
-    title: "Ocean Blue Metallic",
-    location: "Peoria, AZ",
-    service: "Metallic Epoxy",
-    gradient: "linear-gradient(135deg, #0c2340 0%, #1a5276 30%, #2e86c1 50%, #1a5276 70%, #0c2340 100%)",
-    pattern: "radial-gradient(ellipse at 40% 30%, rgba(46, 134, 193, 0.5) 0%, transparent 50%), radial-gradient(ellipse at 60% 70%, rgba(26, 82, 118, 0.4) 0%, transparent 50%)",
+    title: "Polished Concrete Showroom",
+    location: "Phoenix, AZ",
+    service: "Concrete Polishing",
+    src: "https://images.unsplash.com/photo-1682597000932-d7041f42f669?w=800&h=600&fit=crop",
   },
   {
     id: 4,
-    title: "Commercial Warehouse",
-    location: "Phoenix, AZ",
+    title: "Commercial Warehouse Floor",
+    location: "Peoria, AZ",
     service: "Commercial Epoxy",
-    gradient: "linear-gradient(135deg, #34495e 0%, #5d6d7e 30%, #85929e 50%, #5d6d7e 70%, #34495e 100%)",
-    pattern: "radial-gradient(ellipse at 50% 50%, rgba(133, 146, 158, 0.3) 0%, transparent 50%)",
+    src: "https://images.unsplash.com/photo-1595424073665-bf04f38d9c0b?w=800&h=600&fit=crop",
   },
   {
     id: 5,
-    title: "Copper Metallic Blend",
+    title: "Modern Garage Coating",
     location: "Paradise Valley, AZ",
-    service: "Metallic Epoxy",
-    gradient: "linear-gradient(135deg, #1a1a2e 0%, #6d4c41 30%, #bf8040 50%, #6d4c41 70%, #1a1a2e 100%)",
-    pattern: "radial-gradient(ellipse at 30% 40%, rgba(191, 128, 64, 0.4) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(109, 76, 65, 0.5) 0%, transparent 50%)",
+    service: "Garage Floor Coating",
+    src: "https://plus.unsplash.com/premium_photo-1675876511390-349299fff2ab?w=800&h=600&fit=crop",
   },
   {
     id: 6,
-    title: "Full Flake Garage System",
+    title: "Industrial Grade Flooring",
     location: "Surprise, AZ",
-    service: "Garage Floor Coating",
-    gradient: "linear-gradient(135deg, #4a4a4a 0%, #6b6b6b 50%, #4a4a4a 100%)",
-    pattern: `
-      radial-gradient(circle at 10% 20%, rgba(217,158,43,0.5) 1px, transparent 1px),
-      radial-gradient(circle at 30% 50%, rgba(59,130,246,0.4) 1px, transparent 1px),
-      radial-gradient(circle at 50% 10%, rgba(255,255,255,0.4) 1px, transparent 1px),
-      radial-gradient(circle at 70% 70%, rgba(217,158,43,0.3) 1px, transparent 1px),
-      radial-gradient(circle at 90% 40%, rgba(59,130,246,0.3) 1px, transparent 1px),
-      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 1px, transparent 1px),
-      radial-gradient(circle at 60% 30%, rgba(217,158,43,0.4) 1px, transparent 1px),
-      radial-gradient(circle at 80% 90%, rgba(59,130,246,0.3) 1px, transparent 1px),
-      radial-gradient(circle at 40% 60%, rgba(255,255,255,0.35) 1px, transparent 1px)
-    `,
+    service: "Industrial Coatings",
+    src: "https://images.unsplash.com/photo-1585557488780-78b585ba3117?w=800&h=600&fit=crop",
   },
   {
     id: 7,
-    title: "Pool Deck Resurface",
+    title: "Decorative Metallic Swirl",
     location: "Cave Creek, AZ",
-    service: "Patio & Pool Deck",
-    gradient: "linear-gradient(135deg, #d4a574 0%, #e8c9a0 30%, #d4a574 60%, #c4956a 100%)",
-    pattern: "radial-gradient(ellipse at 40% 40%, rgba(255, 255, 255, 0.2) 0%, transparent 50%), radial-gradient(ellipse at 60% 60%, rgba(212, 165, 116, 0.3) 0%, transparent 50%)",
+    service: "Decorative Epoxy",
+    src: "https://images.unsplash.com/photo-1770086962001-3da4f60e7db5?w=800&h=600&fit=crop",
   },
   {
     id: 8,
-    title: "Charcoal Metallic Swirl",
+    title: "Clean Modern Garage",
     location: "Glendale, AZ",
+    service: "Garage Floor Coating",
+    src: "https://plus.unsplash.com/premium_photo-1764702364309-af6aa29a960f?w=800&h=600&fit=crop",
+  },
+  {
+    id: 9,
+    title: "Sleek Commercial Space",
+    location: "Chandler, AZ",
+    service: "Commercial Epoxy",
+    src: "https://images.unsplash.com/photo-1518632537434-6a721453712e?w=800&h=600&fit=crop",
+  },
+  {
+    id: 10,
+    title: "Luxury Residential Floor",
+    location: "Mesa, AZ",
     service: "Metallic Epoxy",
-    gradient: "linear-gradient(135deg, #1a1a1a 0%, #333333 25%, #4a4a4a 50%, #333333 75%, #1a1a1a 100%)",
-    pattern: "radial-gradient(ellipse at 25% 45%, rgba(255, 255, 255, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 75% 55%, rgba(217, 158, 43, 0.1) 0%, transparent 50%)",
+    src: "https://plus.unsplash.com/premium_photo-1682125919133-484f50cfa51d?w=800&h=600&fit=crop",
   },
 ];
 
@@ -166,23 +162,16 @@ export default function Gallery() {
             onClick={() => setSelectedImage(item)}
             className="group relative flex-none w-[280px] sm:w-[320px] aspect-[4/3] rounded-2xl overflow-hidden snap-start cursor-pointer touch-manipulation"
           >
-            {/* Epoxy floor visual */}
-            <div
-              className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-              style={{ background: item.gradient }}
+            <Image
+              src={item.src}
+              alt={item.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="320px"
             />
-            <div className="absolute inset-0" style={{ backgroundImage: item.pattern }} />
-
-            {/* Shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             {/* Overlay with info */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-            {/* Expand icon */}
-            <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm rounded-lg p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              <Expand className="w-4 h-4 text-white" />
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Info */}
             <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -203,9 +192,22 @@ export default function Gallery() {
           className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
+          <button
+            className="absolute top-4 right-4 text-white/70 hover:text-white p-2 z-10"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close"
+          >
+            <X className="w-8 h-8" />
+          </button>
           <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden">
-            <div className="absolute inset-0" style={{ background: selectedImage.gradient }} />
-            <div className="absolute inset-0" style={{ backgroundImage: selectedImage.pattern }} />
+            <Image
+              src={selectedImage.src.replace("w=800&h=600", "w=1600&h=1000")}
+              alt={selectedImage.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              priority
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
               <span className="text-accent text-sm font-semibold uppercase tracking-wider">{selectedImage.service}</span>

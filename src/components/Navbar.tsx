@@ -39,14 +39,10 @@ export default function Navbar() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-cta flex items-center justify-center shadow-accent-glow group-hover:scale-105 transition-transform">
-                <span className="text-white font-display font-bold text-lg">E&P</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="font-display font-bold text-foreground text-base leading-tight block">E&P Epoxy</span>
-                <span className="text-[10px] text-muted-foreground uppercase tracking-widest leading-tight block">Solutions</span>
-              </div>
+            <Link href="/" className="flex items-center gap-1 group">
+              <span className="font-display font-bold text-foreground text-xl sm:text-2xl group-hover:text-accent transition-colors">
+                E&P <span className="text-accent">Epoxy</span>
+              </span>
             </Link>
 
             {/* Desktop nav */}
