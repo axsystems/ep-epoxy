@@ -243,7 +243,7 @@ export default function AboutPage() {
                   description:
                     "Our 15-year residential warranty is the strongest in Arizona. We stand behind our work because we use materials and methods that actually last.",
                 },
-              ].map((item, i) => (
+              ].map((item) => (
                 <div
                   key={item.title}
                   className="card-dark p-6 text-center"
