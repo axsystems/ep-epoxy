@@ -35,7 +35,7 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/50 shadow-soft">
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-white/30 shadow-soft">
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}

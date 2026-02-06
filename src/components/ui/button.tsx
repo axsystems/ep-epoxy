@@ -3,19 +3,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground shadow-soft hover:shadow-medium hover:-translate-y-0.5",
-        cta: "bg-gradient-cta text-white shadow-accent-glow hover:shadow-glow hover:-translate-y-1 font-bold",
-        hero: "bg-accent text-accent-foreground shadow-accent-glow hover:shadow-glow hover:-translate-y-1 font-bold",
-        "hero-outline": "border-2 border-white/80 text-white hover:bg-white/10 hover:border-white",
-        outline: "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+        cta: "bg-accent text-white shadow-accent-glow hover:shadow-glow hover:-translate-y-0.5 hover:brightness-110 font-bold",
+        hero: "bg-white/90 backdrop-blur-xl text-foreground border border-white/50 shadow-soft hover:bg-white hover:shadow-medium hover:-translate-y-0.5 font-bold",
+        "hero-outline": "bg-white/10 backdrop-blur-xl border border-white/30 text-white hover:bg-white/20 hover:border-white/50",
+        outline: "border-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground backdrop-blur-sm",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-accent underline-offset-4 hover:underline",
         dark: "bg-dark text-white hover:bg-dark/90 shadow-dark",
+        glass: "bg-white/70 backdrop-blur-xl border border-white/40 text-foreground shadow-soft hover:bg-white/90 hover:shadow-medium hover:-translate-y-0.5",
+        "glass-accent": "bg-accent/90 backdrop-blur-xl border border-accent/30 text-white shadow-accent-glow hover:bg-accent hover:shadow-glow hover:-translate-y-0.5",
       },
       size: {
         sm: "h-9 px-4 text-xs",

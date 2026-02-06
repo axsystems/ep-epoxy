@@ -4,40 +4,40 @@
 
 @layer base {
   :root {
-    /* Core */
-    --background: 220 20% 98%;
-    --foreground: 220 30% 12%;
+    /* Core — Charcoal + Cyan scheme */
+    --background: 210 18% 97%;
+    --foreground: 220 20% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 12%;
-    --primary: 220 60% 18%;
+    --card-foreground: 220 20% 14%;
+    --primary: 220 40% 13%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 15% 94%;
-    --secondary-foreground: 220 30% 25%;
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 38 95% 55%;
-    --accent-foreground: 220 60% 10%;
+    --secondary: 210 14% 93%;
+    --secondary-foreground: 220 20% 22%;
+    --muted: 210 14% 93%;
+    --muted-foreground: 215 8% 46%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 38 95% 55%;
-    --radius: 0.75rem;
+    --border: 210 12% 88%;
+    --input: 210 12% 88%;
+    --ring: 199 89% 48%;
+    --radius: 0.875rem;
 
     /* Extended palette */
-    --dark: 220 50% 6%;
-    --dark-card: 220 40% 10%;
-    --amber: 38 95% 55%;
-    --amber-light: 42 90% 70%;
-    --amber-dark: 25 90% 45%;
-    --slate-deep: 220 45% 14%;
+    --dark: 220 40% 5%;
+    --dark-card: 220 35% 8%;
+    --amber: 199 89% 48%;
+    --amber-light: 190 80% 60%;
+    --amber-dark: 205 85% 38%;
+    --slate-deep: 220 38% 11%;
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px rgba(15, 23, 42, 0.12);
-    --shadow-medium: 0 8px 30px -6px rgba(15, 23, 42, 0.18);
-    --shadow-card: 0 2px 12px -2px rgba(15, 23, 42, 0.08);
-    --shadow-glow: 0 0 40px rgba(217, 158, 43, 0.3);
-    --shadow-accent: 0 4px 20px -4px rgba(217, 158, 43, 0.4);
+    --shadow-soft: 0 4px 20px -4px rgba(8, 12, 25, 0.1);
+    --shadow-medium: 0 8px 30px -6px rgba(8, 12, 25, 0.14);
+    --shadow-card: 0 2px 12px -2px rgba(8, 12, 25, 0.06);
+    --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.25);
+    --shadow-accent: 0 4px 20px -4px rgba(6, 182, 212, 0.35);
   }
 }
 
@@ -66,6 +66,15 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Apple-style glass effect */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/30 shadow-soft;
+  }
+
+  .glass-dark {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
   }
 
   .container-custom {
@@ -168,17 +177,17 @@ html {
 /* Metallic epoxy floor pattern for decorative sections */
 .epoxy-pattern {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(217, 158, 43, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(217, 158, 43, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 40% 80%, rgba(15, 23, 42, 0.05) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 50%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(15, 23, 42, 0.03) 0%, transparent 50%);
 }
 
 /* Dark section with subtle texture */
 .dark-texture {
   background-color: hsl(var(--dark));
   background-image:
-    radial-gradient(ellipse at 10% 20%, rgba(217, 158, 43, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(217, 158, 43, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 10% 20%, rgba(6, 182, 212, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(6, 182, 212, 0.02) 0%, transparent 50%);
 }
 
 /* Shimmer effect for premium elements */
