@@ -2,26 +2,193 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Core */
+    --background: 220 20% 98%;
+    --foreground: 220 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 12%;
+    --primary: 220 60% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 30% 25%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 38 95% 55%;
+    --accent-foreground: 220 60% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 38 95% 55%;
+    --radius: 0.75rem;
+
+    /* Extended palette */
+    --dark: 220 50% 6%;
+    --dark-card: 220 40% 10%;
+    --amber: 38 95% 55%;
+    --amber-light: 42 90% 70%;
+    --amber-dark: 25 90% 45%;
+    --slate-deep: 220 45% 14%;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px rgba(15, 23, 42, 0.12);
+    --shadow-medium: 0 8px 30px -6px rgba(15, 23, 42, 0.18);
+    --shadow-card: 0 2px 12px -2px rgba(15, 23, 42, 0.08);
+    --shadow-glow: 0 0 40px rgba(217, 158, 43, 0.3);
+    --shadow-accent: 0 4px 20px -4px rgba(217, 158, 43, 0.4);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-gradient {
+    background-image: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--amber-light)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
+
+  .text-gradient-light {
+    background-image: linear-gradient(135deg, hsl(var(--amber-light)), #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .card-elevated {
+    @apply bg-card border border-border/50 rounded-xl shadow-card transition-all duration-300;
+  }
+
+  .card-elevated:hover {
+    @apply shadow-medium -translate-y-1;
+  }
+
+  .card-dark {
+    @apply bg-dark-card border border-white/10 rounded-xl transition-all duration-300;
+  }
+
+  .card-dark:hover {
+    @apply border-accent/30 shadow-glow;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Animations */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Metallic epoxy floor pattern for decorative sections */
+.epoxy-pattern {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(217, 158, 43, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(217, 158, 43, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(15, 23, 42, 0.05) 0%, transparent 50%);
+}
+
+/* Dark section with subtle texture */
+.dark-texture {
+  background-color: hsl(var(--dark));
+  background-image:
+    radial-gradient(ellipse at 10% 20%, rgba(217, 158, 43, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(217, 158, 43, 0.03) 0%, transparent 50%);
+}
+
+/* Shimmer effect for premium elements */
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--accent) / 0) 0%,
+    hsl(var(--accent) / 0.1) 50%,
+    hsl(var(--accent) / 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
 }
